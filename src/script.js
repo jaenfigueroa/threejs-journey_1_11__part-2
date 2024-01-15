@@ -159,9 +159,66 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 /* 3. MESH MATCAP MATERIAL */
 /* 3. MESH MATCAP MATERIAL */
 
-const material = new THREE.MeshMatcapMaterial()
-material.side = THREE.DoubleSide
-material.matcap = texture_matcap_4
+// const material = new THREE.MeshMatcapMaterial()
+// material.side = THREE.DoubleSide
+// material.matcap = texture_matcap_4 // debemos usar "matcap" y asignarle una textura tipo matcap
+
+/* 4. MESH DEPTH MATERIAL */
+/* 4. MESH DEPTH MATERIAL */
+
+// const material = new THREE.MeshDepthMaterial() // se usa principalemnte para dar sombras, mas adelante se vera mas sobre esto
+
+/* 5. MESH DEPTH MATERIAL */
+/* 5. MESH DEPTH MATERIAL */
+
+/* es el de mejor rendimiento que usa luces, pero aveces salen unas lineas extrañas */
+
+// const material = new THREE.MeshLambertMaterial() // este requiere luces
+// material.side = THREE.DoubleSide
+
+// // luces *
+
+// const ambientLight = new THREE.AmbientLight('blue', 0.5)
+// scene.add(ambientLight)
+
+// const pointLight = new THREE.PointLight('red', 30)
+// pointLight.position.y = 3
+// scene.add(pointLight)
+
+/* 6. MESH PHONG MATERIAL */
+/* 6. MESH PHONG MATERIAL */
+
+/* este solcuiona ese problema de lineas, pero es menos rendimiento */
+
+// const material = new THREE.MeshPhongMaterial() // este requiere luces
+// material.shininess = 50 // brillo
+// material.specular = new THREE.Color('red') // color del brillo
+
+// // luces *
+
+// const ambientLight = new THREE.AmbientLight('white', 0.5)
+// scene.add(ambientLight)
+
+// const pointLight = new THREE.PointLight('white', 10)
+// pointLight.position.y = 3
+// scene.add(pointLight)
+
+/* 7. MESH TOON MATERIAL */
+/* 7. MESH TOON MATERIAL */
+
+/* es el mas realiata de luces */
+
+const material = new THREE.MeshToonMaterial()
+material.gradientMap = texture_gradient_3
+
+// // luces *
+
+const ambientLight = new THREE.AmbientLight('blue', 0.5)
+scene.add(ambientLight)
+
+const pointLight = new THREE.PointLight('red', 10)
+pointLight.position.y = 3
+scene.add(pointLight)
 
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
