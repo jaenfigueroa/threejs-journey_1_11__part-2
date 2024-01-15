@@ -143,8 +143,16 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 /* 2. MESH NORMAL MATERIAL */
 /* 2. MESH NORMAL MATERIAL */
 
-const material = new THREE.MeshNormalMaterial()
-material.side = THREE.DoubleSide
+// const material = new THREE.MeshNormalMaterial()
+// material.side = THREE.DoubleSide
+// // material.wireframe = true
+// material.flatShading = true // para que se vea plano, muy util para depurar las normals
+
+/* 2. MESH NORMAL MATERIAL */
+/* 2. MESH NORMAL MATERIAL */
+
+const material = new THREE.MeshMatcapMaterial()
+material.matcap = texture_matcap_1
 
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
@@ -176,20 +184,20 @@ const tick = () => {
   /* ANIMATIONS */
   //   gsap.to(mesh_box.rotation, { duration: 1, delay: 0.5, x: Math.PI * 0.5, y: Math.PI * 0.5 })
 
-  mesh_box.rotation.x = elapsedTime * Math.PI * 0.5
-  mesh_box.rotation.y = elapsedTime * Math.PI * 0.5
+  mesh_box.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_box.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_sphere.rotation.x = elapsedTime * Math.PI * 0.5
-  mesh_sphere.rotation.y = elapsedTime * Math.PI * 0.5
+  mesh_sphere.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_sphere.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_torus.rotation.x = elapsedTime * Math.PI * 0.5
-  mesh_torus.rotation.y = elapsedTime * Math.PI * 0.5
+  mesh_torus.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_torus.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_cone.rotation.x = elapsedTime * Math.PI * 0.5
-  mesh_cone.rotation.y = elapsedTime * Math.PI * 0.5
+  mesh_cone.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_cone.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_plane.rotation.x = elapsedTime * Math.PI * 0.5
-  mesh_plane.rotation.y = elapsedTime * Math.PI * 0.5
+  mesh_plane.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_plane.rotation.y = elapsedTime * Math.PI * 0.3
 
   // Update controls
   controls.update()

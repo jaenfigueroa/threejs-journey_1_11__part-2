@@ -4,10 +4,14 @@
 
 - Aprender mas sobre los diferentes tipo de MATERIAL
 
-1. MeshBasicMaterial
+1. Mesh Basic Material
 
 ![Alt text](/public/image.png)
 
-2. MeshNormalMaterial
+2. Mesh Normal Material
 
 ![Alt text](/public/image-1.png)
+
+2. Mesh Matcap Material
+
+![Alt text](/public/image-2.png)
