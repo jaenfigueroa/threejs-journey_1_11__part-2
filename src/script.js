@@ -87,20 +87,28 @@ const texture_door_metalness = textureLoader.load('/textures/door/metalness.jpg'
 const texture_door_roughness = textureLoader.load('/textures/door/roughness.jpg')
 
 const texture_matcap_1 = textureLoader.load('/textures/matcaps/1.png')
-// const texture_matcap_2 = textureLoader.load('/textures/matcaps/2.png')
-// const texture_matcap_3 = textureLoader.load('/textures/matcaps/3.png')
-// const texture_matcap_4 = textureLoader.load('/textures/matcaps/4.png')
-// const texture_matcap_5 = textureLoader.load('/textures/matcaps/5.png')
-// const texture_matcap_6 = textureLoader.load('/textures/matcaps/6.png')
-// const texture_matcap_7 = textureLoader.load('/textures/matcaps/7.png')
-// const texture_matcap_8 = textureLoader.load('/textures/matcaps/8.png')
+const texture_matcap_2 = textureLoader.load('/textures/matcaps/2.png')
+const texture_matcap_3 = textureLoader.load('/textures/matcaps/3.png')
+const texture_matcap_4 = textureLoader.load('/textures/matcaps/4.png')
+const texture_matcap_5 = textureLoader.load('/textures/matcaps/5.png')
+const texture_matcap_6 = textureLoader.load('/textures/matcaps/6.png')
+const texture_matcap_7 = textureLoader.load('/textures/matcaps/7.png')
+const texture_matcap_8 = textureLoader.load('/textures/matcaps/8.png')
 
 const texture_gradient_3 = textureLoader.load('/textures/gradients/3.jpg')
-// const texture_gradient_5 = textureLoader.load('/textures/gradients/5.jpg')
+const texture_gradient_5 = textureLoader.load('/textures/gradients/5.jpg')
 
 // indicar que estas texturas son sRGB
 texture_door_color.colorSpace = THREE.SRGBColorSpace
+
 texture_matcap_1.colorSpace = THREE.SRGBColorSpace
+texture_matcap_2.colorSpace = THREE.SRGBColorSpace
+texture_matcap_3.colorSpace = THREE.SRGBColorSpace
+texture_matcap_4.colorSpace = THREE.SRGBColorSpace
+texture_matcap_5.colorSpace = THREE.SRGBColorSpace
+texture_matcap_6.colorSpace = THREE.SRGBColorSpace
+texture_matcap_7.colorSpace = THREE.SRGBColorSpace
+texture_matcap_8.colorSpace = THREE.SRGBColorSpace
 
 /* OBJECTS */
 
@@ -148,11 +156,12 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 // // material.wireframe = true
 // material.flatShading = true // para que se vea plano, muy util para depurar las normals
 
-/* 2. MESH NORMAL MATERIAL */
-/* 2. MESH NORMAL MATERIAL */
+/* 3. MESH MATCAP MATERIAL */
+/* 3. MESH MATCAP MATERIAL */
 
 const material = new THREE.MeshMatcapMaterial()
-material.matcap = texture_matcap_1
+material.side = THREE.DoubleSide
+material.matcap = texture_matcap_4
 
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
