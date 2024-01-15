@@ -1,16 +1,13 @@
 # Three.js Journey
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+## Tareas
 
-``` bash
-# Install dependencies (only the first time)
-npm install
+- Aprender mas sobre los diferentes tipo de MATERIAL
 
-# Run the local server at localhost:8080
-npm run dev
+1. MeshBasicMaterial
 
-# Build for production in the dist/ directory
-npm run build
-```
+![Alt text](/public/image.png)
+
+2. MeshNormalMaterial
+
+![Alt text](/public/image-1.png)

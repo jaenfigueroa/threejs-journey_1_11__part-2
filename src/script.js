@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import gsap from 'gsap'
+// import gsap from 'gsap'
 
 /**
  * Base
@@ -110,10 +110,44 @@ const geometry_torus = new THREE.TorusGeometry(0.7, 0.2, 16, 100)
 const geometry_cone = new THREE.ConeGeometry(1, 1, 32)
 const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 
-const material = new THREE.MeshBasicMaterial({
-  //   wireframe: true,
-  map: texture_door_color,
-})
+/* TIPOS DE MATERIAL ///////////////////////////////////////// */
+/* TIPOS DE MATERIAL ///////////////////////////////////////// */
+
+/* primera forma */
+// const material = new THREE.MeshBasicMaterial({
+//   //   color: 0x0000ff,
+//   //   wireframe: true,
+//   map: texture_door_color,
+// })
+
+/* otro: al usar MeshMatcapMaterial se aplica una sombra*/
+// const material = new THREE.MeshMatcapMaterial()
+
+/* 1. MESH BASIC MATERIAL */
+/* 1. MESH BASIC MATERIAL */
+
+/*  segunda forma */
+// const material = new THREE.MeshBasicMaterial()
+// material.color = new THREE.Color('violet')
+// material.wireframe = true
+// material.map = texture_door_color
+//----------
+// material.transparent = true
+// material.opacity = 0.5 // para poder usar el opacity, hay que indicar que el material es transparente
+// material.alphaMap = texture_door_alpha
+//----------
+// material.side = THREE.FrontSide (default)
+// material.side = THREE.BackSide
+// material.side = THREE.DoubleSide // para que se vea por ambos lados // evitar usar este por el costo computacional, y que es mas trabajo
+
+/* 2. MESH NORMAL MATERIAL */
+/* 2. MESH NORMAL MATERIAL */
+
+const material = new THREE.MeshNormalMaterial()
+material.side = THREE.DoubleSide
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 
 const mesh_box = new THREE.Mesh(geometry_box, material)
 const mesh_sphere = new THREE.Mesh(geometry_sphere, material)
@@ -128,6 +162,7 @@ mesh_plane.position.z = 2.3
 
 scene.add(mesh_box, mesh_sphere, mesh_torus, mesh_cone, mesh_plane)
 
+///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 
 /**
