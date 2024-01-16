@@ -159,7 +159,7 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 200, 200)
 /* esta clase extiende de MeshStandardMaterial, obtenemos funcionalidades extra */
 
 const material = new THREE.MeshPhysicalMaterial()
-material.side = THREE.DoubleSide
+// material.side = THREE.DoubleSide
 // material.metalness = 0.35
 // material.roughness = 0.35
 
@@ -212,22 +212,33 @@ debug_MeshPhysicalMaterial.add(material, 'displacementScale').min(0).max(3).step
 
 /* 9.3 Iridescence */ // es para dar efecto ascoiris de colores de un CD,burbujas, brillo de conbustible
 
-material.iridescence = 1
-material.iridescenceIOR = 1
-material.iridescenceThicknessRange = [100, 800]
+// material.iridescence = 1
+// material.iridescenceIOR = 1
+// material.iridescenceThicknessRange = [100, 800]
 
-debug_MeshPhysicalMaterial.add(material, 'iridescence').min(0).max(1).step(0.001)
-debug_MeshPhysicalMaterial.add(material, 'iridescenceIOR').min(0).max(2.333).step(0.001)
-debug_MeshPhysicalMaterial
-  .add(material.iridescenceThicknessRange, '0')
-  .min(1)
-  .max(1000)
-  .step(1)
-debug_MeshPhysicalMaterial
-  .add(material.iridescenceThicknessRange, '1')
-  .min(1)
-  .max(1000)
-  .step(1)
+// debug_MeshPhysicalMaterial.add(material, 'iridescence').min(0).max(1).step(0.001)
+// debug_MeshPhysicalMaterial.add(material, 'iridescenceIOR').min(0).max(2.333).step(0.001)
+// debug_MeshPhysicalMaterial
+//   .add(material.iridescenceThicknessRange, '0')
+//   .min(1)
+//   .max(1000)
+//   .step(1)
+// debug_MeshPhysicalMaterial
+//   .add(material.iridescenceThicknessRange, '1')
+//   .min(1)
+//   .max(1000)
+//   .step(1)
+
+/* 9.4 transmissión */
+
+//permitirá que la luz atraviece el material
+material.transmission = 1
+material.ior = 1.5 /* index of a refraction / deformación que produce el aire, el agua en el mabiembte, cosas asi */
+material.thickness = 0.5 /* grosor del objeto */
+
+debug_MeshPhysicalMaterial.add(material, 'transmission').min(0).max(1).step(0.0001)
+debug_MeshPhysicalMaterial.add(material, 'ior').min(1).max(10).step(0.0001)
+debug_MeshPhysicalMaterial.add(material, 'thickness').min(0).max(1).step(0.0001)
 
 /* //////////////////////////////////////////// */
 /* //////////////////////////////////////////// */
@@ -284,20 +295,20 @@ const tick = () => {
   /* ANIMATIONS */
   //   gsap.to(mesh_box.rotation, { duration: 1, delay: 0.5, x: Math.PI * 0.5, y: Math.PI * 0.5 })
 
-  // mesh_box.rotation.x = elapsedTime * Math.PI * 0.3
-  // mesh_box.rotation.y = elapsedTime * Math.PI * 0.3
+  mesh_box.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_box.rotation.y = elapsedTime * Math.PI * 0.3
 
-  // mesh_sphere.rotation.x = elapsedTime * Math.PI * 0.3
-  // mesh_sphere.rotation.y = elapsedTime * Math.PI * 0.3
+  mesh_sphere.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_sphere.rotation.y = elapsedTime * Math.PI * 0.3
 
-  // mesh_torus.rotation.x = elapsedTime * Math.PI * 0.3
-  // mesh_torus.rotation.y = elapsedTime * Math.PI * 0.3
+  mesh_torus.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_torus.rotation.y = elapsedTime * Math.PI * 0.3
 
-  // mesh_cone.rotation.x = elapsedTime * Math.PI * 0.3
-  // mesh_cone.rotation.y = elapsedTime * Math.PI * 0.3
+  mesh_cone.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_cone.rotation.y = elapsedTime * Math.PI * 0.3
 
-  // mesh_plane.rotation.x = elapsedTime * Math.PI * 0.3
-  // mesh_plane.rotation.y = elapsedTime * Math.PI * 0.3
+  mesh_plane.rotation.x = elapsedTime * Math.PI * 0.3
+  mesh_plane.rotation.y = elapsedTime * Math.PI * 0.3
 
   // Update controls
   controls.update()

@@ -55,3 +55,13 @@ Mi practica con el objeto de la puerta
 
 ![Alt text](/public/image-6.png)
 ![Alt text](/public/image-7.png)
+
+4. Transmissión
+
+permitirá que la luz atraviece el material, y lo que este detras se vea deformado, como un vaso
+
+![Alt text](/public/image-8.png)
+![Alt text](/public/image-9.png)
+![Alt text](/public/image-10.png)
+
+Lista de IOR: https://en.wikipedia.org/wiki/List_of_refractive_indices
