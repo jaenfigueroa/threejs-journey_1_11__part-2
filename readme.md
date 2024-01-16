@@ -28,7 +28,7 @@ para recubrir el objeto en un cristal y manejar los brillos y opacidad de este r
 
 ![Alt text](/public/image.png)
 
-1. Sheen
+2. Sheen
 
 Es especial para telas y cosas esponjosas
 
@@ -40,6 +40,18 @@ Es especial para telas y cosas esponjosas
 
 ![Alt text](/public/image-2.png)
 
-## Enlaces
+La prueba que hize yo, en mi caso lo probé con un color verde
 
-- Matcaps FREE: https://github.com/nidorx/matcaps
+![Alt text](/public/image-3.png)
+
+3. Iridescence
+
+es para dar efecto ascoiris de colores de un CD,burbujas, brillo de conbustible
+
+![Alt text](/public/image-4.png)
+![Alt text](/public/image-5.png)
+
+Mi practica con el objeto de la puerta
+
+![Alt text](/public/image-6.png)
+![Alt text](/public/image-7.png)

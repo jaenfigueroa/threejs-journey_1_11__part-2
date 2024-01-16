@@ -6,7 +6,7 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
 
 const gui = new GUI()
 
-const debug_MeshStandardMaterial = gui.addFolder('Mesh Standard Material')
+const debug_MeshPhysicalMaterial = gui.addFolder('Mesh Standard Material')
 
 /**
  * Base
@@ -182,11 +182,11 @@ material.normalScale.set(1, 1)
 // material.transparent = true
 // material.alphaMap = texture_door_alpha // para controlar transpariencia de secciones de la textura
 
-debug_MeshStandardMaterial.add(material, 'metalness').min(-2).max(2).step(0.0001)
-debug_MeshStandardMaterial.add(material, 'roughness').min(-2).max(2).step(0.0001)
-debug_MeshStandardMaterial.add(material, 'aoMapIntensity').min(0).max(3).step(0.001)
-debug_MeshStandardMaterial.add(material, 'wireframe')
-debug_MeshStandardMaterial.add(material, 'displacementScale').min(0).max(3).step(0.001)
+debug_MeshPhysicalMaterial.add(material, 'metalness').min(-2).max(2).step(0.0001)
+debug_MeshPhysicalMaterial.add(material, 'roughness').min(-2).max(2).step(0.0001)
+debug_MeshPhysicalMaterial.add(material, 'aoMapIntensity').min(0).max(3).step(0.001)
+debug_MeshPhysicalMaterial.add(material, 'wireframe')
+debug_MeshPhysicalMaterial.add(material, 'displacementScale').min(0).max(3).step(0.001)
 
 /* EXTRA que tenemos con MESH PHYSICAL MATERIAL */
 /* EXTRA que tenemos con MESH PHYSICAL MATERIAL */
@@ -194,15 +194,40 @@ debug_MeshStandardMaterial.add(material, 'displacementScale').min(0).max(3).step
 /* 9.1 clearcout */
 /* dar el efecto de como quq tengo mi objeto dentro de un cristal */
 
-material.clearcoat = 1
-material.clearcoatRoughness = 0
+// material.clearcoat = 1
+// material.clearcoatRoughness = 0
 
-debug_MeshStandardMaterial.add(material, 'clearcoat').min(0).max(1).step(0.001)
-debug_MeshStandardMaterial.add(material, 'clearcoatRoughness').min(0).max(1).step(0.001)
+// debug_MeshStandardMaterial.add(material, 'clearcoat').min(0).max(1).step(0.001)
+// debug_MeshStandardMaterial.add(material, 'clearcoatRoughness').min(0).max(1).step(0.001)
 
 /* 9.2 sheen */ // especial par material esponjoso
 
 // material.sheen = 1
+// material.sheenRoughness = 0.25
+// material.sheenColor.set(1, 1, 1)
+
+// debug_MeshPhysicalMaterial.add(material, 'sheen').min(0).max(1).step(0.001)
+// debug_MeshPhysicalMaterial.add(material, 'sheenRoughness').min(0).max(1).step(0.001)
+// debug_MeshPhysicalMaterial.addColor(material, 'sheenColor')
+
+/* 9.3 Iridescence */ // es para dar efecto ascoiris de colores de un CD,burbujas, brillo de conbustible
+
+material.iridescence = 1
+material.iridescenceIOR = 1
+material.iridescenceThicknessRange = [100, 800]
+
+debug_MeshPhysicalMaterial.add(material, 'iridescence').min(0).max(1).step(0.001)
+debug_MeshPhysicalMaterial.add(material, 'iridescenceIOR').min(0).max(2.333).step(0.001)
+debug_MeshPhysicalMaterial
+  .add(material.iridescenceThicknessRange, '0')
+  .min(1)
+  .max(1000)
+  .step(1)
+debug_MeshPhysicalMaterial
+  .add(material.iridescenceThicknessRange, '1')
+  .min(1)
+  .max(1000)
+  .step(1)
 
 /* //////////////////////////////////////////// */
 /* //////////////////////////////////////////// */
