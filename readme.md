@@ -67,6 +67,12 @@ Junto a una iamgen .hdr alrededor, para que refleje los brillos y colores de esa
 ![Alt text](/public/image-13.png)
 ![Alt text](/public/image-14.png)
 
+### 9. Mesh Physical Material
+
+Esta clases extiende de MeshStandardMaterial, asi que tiene lo mismo, pero tendras acceso a mas funciones.
+
+`Mucha info, Mesh Physical lo vemos en otro repo, solo este`
+
 ## Enlaces
 
 - Matcaps FREE: https://github.com/nidorx/matcaps
