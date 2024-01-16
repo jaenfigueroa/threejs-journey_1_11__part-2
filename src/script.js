@@ -206,10 +206,17 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 /* 7. MESH TOON MATERIAL */
 /* 7. MESH TOON MATERIAL */
 
+/* para mostra en la mejor calidad o tipo micedraft */
+
+// texture_gradient_3.minFilter = THREE.NearestFilter
+// texture_gradient_3.generateMipmaps = false
+
+// texture_gradient_5.magFilter = THREE.NearestFilter
+
 /* es el mas realiata de luces */
 
 const material = new THREE.MeshToonMaterial()
-material.gradientMap = texture_gradient_3
+material.gradientMap = texture_gradient_5
 
 // // luces *
 

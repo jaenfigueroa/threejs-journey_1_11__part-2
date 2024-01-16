@@ -16,11 +16,15 @@
 
 ![Alt text](/public/image-3.png)
 
-### 4. Mesh Depth Material (este en el curso se veia asi, pero a mi no me aparecia casi nada)
+### 4. Mesh Depth Material
+
+(este en el curso se veia asi, pero a mi no me aparecia casi nada)
 
 ![Alt text](/public/image-4.png)
 
-### 5. Mesh Lambert Material (requiere luces)
+### 5. Mesh Lambert Material
+
+(requiere luces)
 
 Tiene mejor rendimeito, pero aveces sale lineas sombras extrañas
 
@@ -30,11 +34,29 @@ Tiene mejor rendimeito, pero aveces sale lineas sombras extrañas
 (luces rojas, ambiente azul)
 ![Alt text](/public/image-6.png)
 
-### 6. Mesh Phong Material (este requiere luces , es mejor, solcuiona el error de lineas, pero menos rendimiento, porque tiene muchos mas funcionalidades) , como darle un brillo de color al objeto
+### 6. Mesh Phong Material
+
+(este requiere luces , es mejor, solcuiona el error de lineas, pero menos rendimiento, porque tiene muchos mas funcionalidades) , como darle un brillo de color al objeto
 
 ![Alt text](/public/image-7.png)
 
-### 7. Mesh Toon Material (requiere luces, y es el mas realista)
+### 7. Mesh Toon Material
+
+(requiere luces, y es el mas realista)
+
+![Alt text](/public/image-9.png)
+
+pero tambien podemos obtener resultados como este al usar
+
+```javascript
+texture_gradient_5.magFilter = THREE.NearestFilter
+```
+
+![Alt text](/public/image-8.png)
+
+### 8. Mesh Standard Material
+
+xxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Enlaces
 
