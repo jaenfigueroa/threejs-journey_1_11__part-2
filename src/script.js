@@ -138,107 +138,27 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 200, 200)
 // const material = new THREE.MeshMatcapMaterial()
 
 /* 1. MESH BASIC MATERIAL */
-/* 1. MESH BASIC MATERIAL */
-
-/*  segunda forma */
-// const material = new THREE.MeshBasicMaterial()
-// material.color = new THREE.Color('violet')
-// material.wireframe = true
-// material.map = texture_door_color
-//----------
-// material.transparent = true
-// material.opacity = 0.5 // para poder usar el opacity, hay que indicar que el material es transparente
-// material.alphaMap = texture_door_alpha
-//----------
-// material.side = THREE.FrontSide (default)
-// material.side = THREE.BackSide
-// material.side = THREE.DoubleSide // para que se vea por ambos lados // evitar usar este por el costo computacional, y que es mas trabajo
 
 /* 2. MESH NORMAL MATERIAL */
-/* 2. MESH NORMAL MATERIAL */
-
-// const material = new THREE.MeshNormalMaterial()
-// material.side = THREE.DoubleSide
-// // material.wireframe = true
-// material.flatShading = true // para que se vea plano, muy util para depurar las normals
 
 /* 3. MESH MATCAP MATERIAL */
-/* 3. MESH MATCAP MATERIAL */
-
-// const material = new THREE.MeshMatcapMaterial()
-// material.side = THREE.DoubleSide
-// material.matcap = texture_matcap_4 // debemos usar "matcap" y asignarle una textura tipo matcap
 
 /* 4. MESH DEPTH MATERIAL */
-/* 4. MESH DEPTH MATERIAL */
-
-// const material = new THREE.MeshDepthMaterial() // se usa principalemnte para dar sombras, mas adelante se vera mas sobre esto
 
 /* 5. MESH DEPTH MATERIAL */
-/* 5. MESH DEPTH MATERIAL */
-
-/* es el de mejor rendimiento que usa luces, pero aveces salen unas lineas extrañas */
-
-// const material = new THREE.MeshLambertMaterial() // este requiere luces
-// material.side = THREE.DoubleSide
-
-// // luces *
-
-// const ambientLight = new THREE.AmbientLight('blue', 0.5)
-// scene.add(ambientLight)
-
-// const pointLight = new THREE.PointLight('red', 30)
-// pointLight.position.y = 3
-// scene.add(pointLight)
 
 /* 6. MESH PHONG MATERIAL */
-/* 6. MESH PHONG MATERIAL */
-
-/* este solcuiona ese problema de lineas, pero es menos rendimiento */
-
-// const material = new THREE.MeshPhongMaterial() // este requiere luces
-// material.shininess = 50 // brillo
-// material.specular = new THREE.Color('red') // color del brillo
-
-// // luces *
-
-// const ambientLight = new THREE.AmbientLight('white', 0.5)
-// scene.add(ambientLight)
-
-// const pointLight = new THREE.PointLight('white', 10)
-// pointLight.position.y = 3
-// scene.add(pointLight)
 
 /* 7. MESH TOON MATERIAL */
-/* 7. MESH TOON MATERIAL */
-
-/* para mostra en la mejor calidad o tipo micedraft */
-
-// texture_gradient_3.minFilter = THREE.NearestFilter
-// texture_gradient_3.generateMipmaps = false
-
-// texture_gradient_5.magFilter = THREE.NearestFilter
-
-/* es el mas realiata de luces */
-
-// const material = new THREE.MeshToonMaterial()
-// material.gradientMap = texture_gradient_5
-
-// // // luces *
-
-// const ambientLight = new THREE.AmbientLight('blue', 0.5)
-// scene.add(ambientLight)
-
-// const pointLight = new THREE.PointLight('red', 10)
-// pointLight.position.y = 3
-// scene.add(pointLight)
 
 /* 8. MESH STANDARD MATERIAL */
-/* 8. MESH STANDARD MATERIAL */
 
-/* es el standar entre blender, threejs, en todas las librerias, es el mas realista posible */
+/* 9. MESH PHYSICAL MATERIAL */
+/* 9. MESH PHYSICAL MATERIAL */
 
-const material = new THREE.MeshStandardMaterial()
+/* esta clase extiende de MeshStandardMaterial, obtenemos funcionalidades extra */
+
+const material = new THREE.MeshPhysicalMaterial()
 material.side = THREE.DoubleSide
 // material.metalness = 0.35
 // material.roughness = 0.35
@@ -267,6 +187,25 @@ debug_MeshStandardMaterial.add(material, 'roughness').min(-2).max(2).step(0.0001
 debug_MeshStandardMaterial.add(material, 'aoMapIntensity').min(0).max(3).step(0.001)
 debug_MeshStandardMaterial.add(material, 'wireframe')
 debug_MeshStandardMaterial.add(material, 'displacementScale').min(0).max(3).step(0.001)
+
+/* EXTRA que tenemos con MESH PHYSICAL MATERIAL */
+/* EXTRA que tenemos con MESH PHYSICAL MATERIAL */
+
+/* 9.1 clearcout */
+/* dar el efecto de como quq tengo mi objeto dentro de un cristal */
+
+material.clearcoat = 1
+material.clearcoatRoughness = 0
+
+debug_MeshStandardMaterial.add(material, 'clearcoat').min(0).max(1).step(0.001)
+debug_MeshStandardMaterial.add(material, 'clearcoatRoughness').min(0).max(1).step(0.001)
+
+/* 9.2 sheen */ // especial par material esponjoso
+
+// material.sheen = 1
+
+/* //////////////////////////////////////////// */
+/* //////////////////////////////////////////// */
 
 // luces *
 
