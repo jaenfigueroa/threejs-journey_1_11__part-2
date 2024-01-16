@@ -157,6 +157,7 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 200, 200)
 /* 9. MESH PHYSICAL MATERIAL */
 
 /* esta clase extiende de MeshStandardMaterial, obtenemos funcionalidades extra */
+/* tambien, es el peor material en cuanto a renidmiento, por todas las cosas que nos brinda, obiamente es muy pesada, pero para trabajos extremandamente realistas esta perfecto */
 
 const material = new THREE.MeshPhysicalMaterial()
 // material.side = THREE.DoubleSide

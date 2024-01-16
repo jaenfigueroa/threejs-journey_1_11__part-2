@@ -26,6 +26,8 @@
 
 para recubrir el objeto en un cristal y manejar los brillos y opacidad de este recubrimiento
 
+tambien, es el peor material en cuanto a renidmiento, por todas las cosas que nos brinda, obiamente es muy pesada, pero para trabajos extremandamente realistas esta perfecto
+
 ![Alt text](/public/image.png)
 
 2. Sheen
@@ -65,3 +67,9 @@ permitirá que la luz atraviece el material, y lo que este detras se vea deforma
 ![Alt text](/public/image-10.png)
 
 Lista de IOR: https://en.wikipedia.org/wiki/List_of_refractive_indices
+
+## Hay mas Materials, pero aun no lo vamos a ver, porque no tenemos aun el conomiento, pero igualmente los listo aqui:
+
+- PointsMaterial
+- ShaderMaterial
+- RawShaderMaterial (crear nuestro propio material)
