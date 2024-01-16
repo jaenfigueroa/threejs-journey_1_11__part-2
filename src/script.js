@@ -1,6 +1,12 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // import gsap from 'gsap'
+import GUI from 'lil-gui'
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader'
+
+const gui = new GUI()
+
+const debug_MeshStandardMaterial = gui.addFolder('Mesh Standard Material')
 
 /**
  * Base
@@ -40,7 +46,7 @@ window.addEventListener('resize', () => {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 100)
 // camera.position.x = 1
 camera.position.y = 1
-camera.position.z = 2
+camera.position.z = 3
 scene.add(camera)
 
 // Controls
@@ -215,17 +221,52 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 
 /* es el mas realiata de luces */
 
-const material = new THREE.MeshToonMaterial()
-material.gradientMap = texture_gradient_5
+// const material = new THREE.MeshToonMaterial()
+// material.gradientMap = texture_gradient_5
 
-// // luces *
+// // // luces *
 
-const ambientLight = new THREE.AmbientLight('blue', 0.5)
+// const ambientLight = new THREE.AmbientLight('blue', 0.5)
+// scene.add(ambientLight)
+
+// const pointLight = new THREE.PointLight('red', 10)
+// pointLight.position.y = 3
+// scene.add(pointLight)
+
+/* 8. MESH STANDARD MATERIAL */
+/* 8. MESH STANDARD MATERIAL */
+
+/* es el standar entre blender, threejs, en todas las librerias, es el mas realista posible */
+
+const material = new THREE.MeshStandardMaterial()
+// material.metalness = 0.35
+// material.roughness = 0.35
+material.metalness = 1
+material.roughness = 0
+
+debug_MeshStandardMaterial.add(material, 'metalness').min(0).max(1).step(0.0001)
+debug_MeshStandardMaterial.add(material, 'roughness').min(0).max(1).step(0.0001)
+
+// luces *
+
+const ambientLight = new THREE.AmbientLight('red', 0.5)
 scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight('red', 10)
+const pointLight = new THREE.PointLight('yellow', 10)
 pointLight.position.y = 3
 scene.add(pointLight)
+
+/* Environment map (iamgen tipo alrededor)*/
+
+const rgbeLoader = new RGBELoader()
+rgbeLoader.load('/textures/environmentMap/2k.hdr', (environtmentMap) => {
+  // console.log(environtmentMap)
+
+  environtmentMap.mapping = THREE.EquirectangularReflectionMapping
+
+  scene.environment = environtmentMap
+  scene.background = environtmentMap
+})
 
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////

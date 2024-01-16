@@ -56,7 +56,13 @@ texture_gradient_5.magFilter = THREE.NearestFilter
 
 ### 8. Mesh Standard Material
 
-xxxxxxxxxxxxxxxxxxxxxxxx
+es el standar entre blender, threejs, en todas las librerias, es el mas realista posible
+
+![Alt text](/public/image-10.png)
+
+JUnto a una iamgen .hdr alrededor, para que refleje los brillos y colores de esa imagen
+
+![Alt text](/public/image-11.png)
 
 ## Enlaces
 
