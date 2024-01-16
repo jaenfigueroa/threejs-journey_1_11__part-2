@@ -46,7 +46,7 @@ window.addEventListener('resize', () => {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 100)
 // camera.position.x = 1
 camera.position.y = 1
-camera.position.z = 3
+camera.position.z = 2
 scene.add(camera)
 
 // Controls
@@ -118,11 +118,11 @@ texture_matcap_8.colorSpace = THREE.SRGBColorSpace
 
 /* OBJECTS */
 
-const geometry_box = new THREE.BoxGeometry(1, 1, 1, 2, 2, 2)
-const geometry_sphere = new THREE.SphereGeometry(1, 32, 32)
-const geometry_torus = new THREE.TorusGeometry(0.7, 0.2, 16, 100)
+const geometry_box = new THREE.BoxGeometry(1, 1, 1, 200, 200, 200)
+const geometry_sphere = new THREE.SphereGeometry(1, 100, 100)
+const geometry_torus = new THREE.TorusGeometry(0.7, 0.2, 64, 128)
 const geometry_cone = new THREE.ConeGeometry(1, 1, 32)
-const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
+const geometry_plane = new THREE.PlaneGeometry(1, 1, 200, 200)
 
 /* TIPOS DE MATERIAL ///////////////////////////////////////// */
 /* TIPOS DE MATERIAL ///////////////////////////////////////// */
@@ -239,16 +239,34 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 /* es el standar entre blender, threejs, en todas las librerias, es el mas realista posible */
 
 const material = new THREE.MeshStandardMaterial()
+material.side = THREE.DoubleSide
 // material.metalness = 0.35
 // material.roughness = 0.35
-material.metalness = 0
-material.roughness = 1
 
 material.map = texture_door_color
-// material.alphaMap = texture_door_alpha
+material.aoMap = texture_door_ambientOcclusion // le da tipo una saturacion de sombra, para que esas grietas no afecte casi nada la luz del alrededor
+material.aoMapIntensity = 0.65
 
-debug_MeshStandardMaterial.add(material, 'metalness').min(0).max(1).step(0.0001)
-debug_MeshStandardMaterial.add(material, 'roughness').min(0).max(1).step(0.0001)
+material.displacementMap = texture_door_height // da a un altura a la textura
+material.displacementScale = 0.1
+
+material.metalnessMap = texture_door_metalness // para controlar el efecto metalico
+material.metalness = 1
+
+material.roughnessMap = texture_door_roughness // para controlar la rugosidad
+material.roughness = 1
+
+material.normalMap = texture_door_normal // para controlar los reflejos, que partes solamente deben tener reflejos
+material.normalScale.set(1, 1)
+
+// material.transparent = true
+// material.alphaMap = texture_door_alpha // para controlar transpariencia de secciones de la textura
+
+debug_MeshStandardMaterial.add(material, 'metalness').min(-2).max(2).step(0.0001)
+debug_MeshStandardMaterial.add(material, 'roughness').min(-2).max(2).step(0.0001)
+debug_MeshStandardMaterial.add(material, 'aoMapIntensity').min(0).max(3).step(0.001)
+debug_MeshStandardMaterial.add(material, 'wireframe')
+debug_MeshStandardMaterial.add(material, 'displacementScale').min(0).max(3).step(0.001)
 
 // luces *
 
@@ -259,7 +277,7 @@ debug_MeshStandardMaterial.add(material, 'roughness').min(0).max(1).step(0.0001)
 // pointLight.position.y = 3
 // scene.add(pointLight)
 
-/* Environment map (iamgen tipo alrededor)*/
+/* environment map (imagen tipo alrededor de la escena)*/
 /* lo estamos usando par simular luces y reflejos realistas */
 
 const rgbeLoader = new RGBELoader()
@@ -302,20 +320,20 @@ const tick = () => {
   /* ANIMATIONS */
   //   gsap.to(mesh_box.rotation, { duration: 1, delay: 0.5, x: Math.PI * 0.5, y: Math.PI * 0.5 })
 
-  mesh_box.rotation.x = elapsedTime * Math.PI * 0.3
-  mesh_box.rotation.y = elapsedTime * Math.PI * 0.3
+  // mesh_box.rotation.x = elapsedTime * Math.PI * 0.3
+  // mesh_box.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_sphere.rotation.x = elapsedTime * Math.PI * 0.3
-  mesh_sphere.rotation.y = elapsedTime * Math.PI * 0.3
+  // mesh_sphere.rotation.x = elapsedTime * Math.PI * 0.3
+  // mesh_sphere.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_torus.rotation.x = elapsedTime * Math.PI * 0.3
-  mesh_torus.rotation.y = elapsedTime * Math.PI * 0.3
+  // mesh_torus.rotation.x = elapsedTime * Math.PI * 0.3
+  // mesh_torus.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_cone.rotation.x = elapsedTime * Math.PI * 0.3
-  mesh_cone.rotation.y = elapsedTime * Math.PI * 0.3
+  // mesh_cone.rotation.x = elapsedTime * Math.PI * 0.3
+  // mesh_cone.rotation.y = elapsedTime * Math.PI * 0.3
 
-  mesh_plane.rotation.x = elapsedTime * Math.PI * 0.3
-  mesh_plane.rotation.y = elapsedTime * Math.PI * 0.3
+  // mesh_plane.rotation.x = elapsedTime * Math.PI * 0.3
+  // mesh_plane.rotation.y = elapsedTime * Math.PI * 0.3
 
   // Update controls
   controls.update()

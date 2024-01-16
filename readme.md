@@ -56,14 +56,16 @@ texture_gradient_5.magFilter = THREE.NearestFilter
 
 ### 8. Mesh Standard Material
 
-es el standar entre blender, threejs, en todas las librerias, es el mas realista posible
+es el standar entre blender, threejs, en todas las librerias, es el mas realista posible, controlamos altura, rugosidad, metalicidad, reflejos, transpariencia
 
 ![Alt text](/public/image-10.png)
 
-JUnto a una iamgen .hdr alrededor, para que refleje los brillos y colores de esa imagen
+Junto a una iamgen .hdr alrededor, para que refleje los brillos y colores de esa imagen
 
 ![Alt text](/public/image-11.png)
 ![Alt text](/public/image-12.png)
+![Alt text](/public/image-13.png)
+![Alt text](/public/image-14.png)
 
 ## Enlaces
 
