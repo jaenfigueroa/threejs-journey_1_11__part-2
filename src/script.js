@@ -241,22 +241,26 @@ const geometry_plane = new THREE.PlaneGeometry(1, 1, 2, 2)
 const material = new THREE.MeshStandardMaterial()
 // material.metalness = 0.35
 // material.roughness = 0.35
-material.metalness = 1
-material.roughness = 0
+material.metalness = 0
+material.roughness = 1
+
+material.map = texture_door_color
+// material.alphaMap = texture_door_alpha
 
 debug_MeshStandardMaterial.add(material, 'metalness').min(0).max(1).step(0.0001)
 debug_MeshStandardMaterial.add(material, 'roughness').min(0).max(1).step(0.0001)
 
 // luces *
 
-const ambientLight = new THREE.AmbientLight('red', 0.5)
-scene.add(ambientLight)
+// const ambientLight = new THREE.AmbientLight('red', 0.5)
+// scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight('yellow', 10)
-pointLight.position.y = 3
-scene.add(pointLight)
+// const pointLight = new THREE.PointLight('yellow', 10)
+// pointLight.position.y = 3
+// scene.add(pointLight)
 
 /* Environment map (iamgen tipo alrededor)*/
+/* lo estamos usando par simular luces y reflejos realistas */
 
 const rgbeLoader = new RGBELoader()
 rgbeLoader.load('/textures/environmentMap/2k.hdr', (environtmentMap) => {

@@ -63,6 +63,7 @@ es el standar entre blender, threejs, en todas las librerias, es el mas realista
 JUnto a una iamgen .hdr alrededor, para que refleje los brillos y colores de esa imagen
 
 ![Alt text](/public/image-11.png)
+![Alt text](/public/image-12.png)
 
 ## Enlaces
 
